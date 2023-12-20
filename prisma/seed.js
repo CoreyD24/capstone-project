@@ -1,8 +1,9 @@
-const prisma = require("./src/server/client");
+const prisma = require("../src/server/client");
 const bcrypt = require("bcrypt");
 
+
 async function seed() {
-    const john = await prisma.Users.create({
+    const john = await prisma.users.create({
         data: {
             username: "John",
             password: await bcrypt.hash("123", 10),
@@ -10,12 +11,12 @@ async function seed() {
             address: "State of John",
             first_name: "John",
             last_name: "Wick",
-            phone_number: 8008675309,
+            phone_number: "8008675309",
             is_admin: true
         },
     });
 
-    const jack = await prisma.Users.create({
+    const jack = await prisma.users.create({
         data: {
             username: "Jack",
             password: await bcrypt.hash("456", 10),
@@ -23,12 +24,12 @@ async function seed() {
             address: "State of Jack",
             first_name: "Jack",
             last_name: "Brick",
-            phone_number: 8007777777,
+            phone_number: "8007777777",
             is_admin: true
         },
     });
 
-    const jill = await prisma.Users.create({
+    const jill = await prisma.users.create({
         data: {
             username: "Jill",
             password: await bcrypt.hash("789", 10),
@@ -36,11 +37,11 @@ async function seed() {
             address: "State of Jill",
             first_name: "Jill",
             last_name: "Pick",
-            phone_number: 8008888888
+            phone_number: "8008888888"
         },
     });
 
-    const mary = await prisma.Users.create({
+    const mary = await prisma.users.create({
         data: {
             username: "Mary",
             password: await bcrypt.hash("987", 10),
@@ -48,11 +49,11 @@ async function seed() {
             address: "State of Mary",
             first_name: "Mary",
             last_name: "Stick",
-            phone_number: 8009999999
+            phone_number: "8009999999"
         },
     });
 
-    const hezekiah = await prisma.Users.create({
+    const hezekiah = await prisma.users.create({
         data: {
             username: "Hezekiah",
             password: await bcrypt.hash("654", 10),
@@ -60,11 +61,11 @@ async function seed() {
             address: "State of Hezekiah",
             first_name: "Hezekiah",
             last_name: "Smezekiah",
-            phone_number: 8001111111
+            phone_number: "8001111111"
         },
     });
 
-    const asusMonitor = await prisma.Products.create({
+    const asusMonitor = await prisma.products.create({
         data: {
             brand: "Asus",
             model: "Type1",
@@ -76,7 +77,7 @@ async function seed() {
         }
     });
 
-    const msiMonitor = await prisma.Products.create({
+    const msiMonitor = await prisma.products.create({
         data: {
             brand: "Msi",
             model: "Type2",
@@ -88,7 +89,7 @@ async function seed() {
         }
     });
 
-    const samsungMonitor = await prisma.Products.create({
+    const samsungMonitor = await prisma.products.create({
         data: {
             brand: "Samsung",
             model: "Type3",
@@ -100,7 +101,7 @@ async function seed() {
         }
     });
 
-    const asusMouse = await prisma.Products.create({
+    const asusMouse = await prisma.products.create({
         data: {
             brand: "Asus",
             model: "Type1",
@@ -112,7 +113,7 @@ async function seed() {
         }
     });
 
-    const msiMouse = await prisma.Products.create({
+    const msiMouse = await prisma.products.create({
         data: {
             brand: "Msi",
             model: "Type2",
@@ -124,7 +125,7 @@ async function seed() {
         }
     });
 
-    const samsungMouse = await prisma.Products.create({
+    const samsungMouse = await prisma.products.create({
         data: {
             brand: "Msi",
             model: "Type3",
@@ -136,7 +137,7 @@ async function seed() {
         }
     });
 
-    const asusKeyboard = await prisma.Products.create({
+    const asusKeyboard = await prisma.products.create({
         data: {
             brand: "Asus",
             model: "Type1",
@@ -148,7 +149,7 @@ async function seed() {
         }
     });
 
-    const msiKeyboard = await prisma.Products.create({
+    const msiKeyboard = await prisma.products.create({
         data: {
             brand: "Msi",
             model: "Type2",
@@ -160,7 +161,7 @@ async function seed() {
         }
     });
 
-    const samsungKeyboard = await prisma.Products.create({
+    const samsungKeyboard = await prisma.products.create({
         data: {
             brand: "Samsung",
             model: "Type3",

@@ -18,7 +18,7 @@ model Users {
   address           String        @unique
   first_name        String
   last_name         String
-  phone_number      Int
+  phone_number      String
   is_admin          Boolean       @default(false)
   cart              Cart?
 }
@@ -27,7 +27,7 @@ model Cart {
   id                Int           @id @default(autoincrement())
   userId            Int           @unique
   user              Users         @relation(fields: [userId], references: [id])
-  total_price       Decimal?
+  total_price       Float?        @default(0.00)
   cart_products     Cart_Products[]
 }
 
@@ -44,7 +44,7 @@ model Products {
   brand           String
   model           String
   type            String
-  price           Decimal
+  price           Float?        @default(0.00)
   img             String
   quantity        Int?
   description     String
