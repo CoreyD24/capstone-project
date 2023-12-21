@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom"; use later when clicking on product to take to single product page
+import { Link } from "react-router-dom";
 
 const  AllProducts = () => {
     const [ products, setProducts] = useState([]);
@@ -23,11 +23,13 @@ const  AllProducts = () => {
                 <div id="all_products_container">
                     { products.map((product) => {
                         return (
-                        <div key={product.id} style={{ border: "1px solid black"}}>
-                            <h3> Brand: {product.brand} </h3>
-                            <img src={product.img} />
-                            <h3> Price: {product.price} </h3>
-                        </div>
+                        <Link to={`/${product.id}`} style={{ textDecoration: "none", color: "white"}}>
+                            <div key={product.id} style={{ border: "1px solid black"}}>
+                                <h3> Brand: {product.brand} </h3>
+                                <img src={product.img} />
+                                <h3> Price: {product.price} </h3>
+                            </div>
+                        </Link>
                         )
                     })}
                 </div> 
