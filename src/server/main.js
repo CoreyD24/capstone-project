@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 //   res.send("Hello Vite + React!");
 // });
 
-app.use("/api", require("./api"));
+// app.use("/api", require("./api"));
 app.use("/auth", require("./auth"));
 
 ViteExpress.listen(app, 3000, () =>
