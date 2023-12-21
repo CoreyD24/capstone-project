@@ -4,14 +4,14 @@ import "./App.css";
 import AllProducts from "./components/AllProducts";
 
 const App = () => {
-
   return (
     <div className="App">
-     <Routes>
-      <Route index path="/products" element={<AllProducts />}/>
-     </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<AllProducts />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
