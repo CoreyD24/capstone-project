@@ -3,8 +3,11 @@ const router = express.Router();
 const prisma = require("../client");
 
 // /api/users
-router.use("/", (req, res) => {
-    res.send(`Welcome to Users`)
-})
+router.get("/", async (req, res) => {
+    const allUsers = await prisma.users.findMany();
+    res.send(allUsers)
+});
+
+
 
 module.exports = router;
