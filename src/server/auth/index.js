@@ -18,6 +18,7 @@ router.post("/login", async (req, res, next) => {
       },
     });
 
+    console.log(user);
     const isValid = await bcrypt.compare(password, user.password);
 
     if (!isValid) {
@@ -28,8 +29,15 @@ router.post("/login", async (req, res, next) => {
       { id: user.id, username: user.username },
       process.env.JWT_SECRET
     );
+    console.log(user.is_admin);
 
-    res.status(200).send({ message: "Login Sucessful", token });
+    if (user.is_admin) {
+      res
+        .status(200)
+        .send({ message: "Login Sucessful", token, admin: user.is_admin });
+    } else {
+      res.status(200).send({ message: "Login Sucessful", token });
+    }
   } catch (error) {
     console.log(error);
     res.status(401).send({ message: "User does not exist" });
