@@ -9,11 +9,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// /api
 app.use("/api", require("./api"));
-// app.use("/auth", require("./auth"));
-
+app.use("/auth", require("./auth"));
 
 ViteExpress.listen(app, 3000, () =>
   console.log("Server is listening on port 3000...")
