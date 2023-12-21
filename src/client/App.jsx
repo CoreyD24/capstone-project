@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import AllProducts from "./components/AllProducts";
+import Login from "./components/Login.jsx";
 
 const App = () => {
   return (
