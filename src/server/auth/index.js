@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const prisma = require("../client");
 const router = express.Router();
+require("dotenv")
 
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
