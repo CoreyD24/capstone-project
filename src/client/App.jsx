@@ -19,7 +19,7 @@ const App = () => {
         />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
-        <Route path="/:id" element={<SingleProduct />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   );

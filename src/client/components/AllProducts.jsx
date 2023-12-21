@@ -24,7 +24,7 @@ const AllProducts = ({ isAdmin }) => {
         {products.map((product) => {
           return (
             <Link
-              to={`/${product.id}`}
+              to={`/products/${product.id}`}
               style={{ textDecoration: "none", color: "white" }}
             >
               <div key={product.id} style={{ border: "1px solid black" }}>
