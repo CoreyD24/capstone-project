@@ -20,14 +20,17 @@ const  AllProducts = () => {
     return (
         <div>
             <h2> All Products </h2>
-            <div id="all_products_container">
-                <div key={products.id} style={{ border: "1px solid black"}}>
-                    <h3> Brand: {products.brand} </h3>
-                    <img src={products.img} />
-                    <h3> Price: {products.price} </h3>
-
-                </div>
-            </div>
+                <div id="all_products_container">
+                    { products.map((product) => {
+                        return (
+                        <div key={product.id} style={{ border: "1px solid black"}}>
+                            <h3> Brand: {product.brand} </h3>
+                            <img src={product.img} />
+                            <h3> Price: {product.price} </h3>
+                        </div>
+                        )
+                    })}
+                </div> 
         </div>
     )
 }
