@@ -1,5 +1,6 @@
 const express = require("express");
 const prisma = require("../client");
+const {verify} = require("../util");
 const router = express.Router();
 
 // /api/products
@@ -44,7 +45,7 @@ router.get("/keyboards", async(req, res)=>{
     }});
 
 // /api/products/:id
-router.get("/:id", async (req, res) => {
+router.get("/:id", verify, async (req, res) => {
     try {
         const productId = await prisma.products.findUnique({
             where: {id: +req.params.id}
