@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
 import AllProducts from "./components/AllProducts";
 import SingleProduct from "./components/SingleProduct";
 
@@ -16,8 +17,9 @@ const App = () => {
           path="/login"
           element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
         />
+        <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
-        <Route path="/:id" element={<SingleProduct />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   );
