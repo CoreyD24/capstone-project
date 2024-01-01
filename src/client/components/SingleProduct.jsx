@@ -21,7 +21,7 @@ const SingleProduct = () => {
 
   return (
     <div>
-      <div id="single_product_container">
+      <div id="single_product_container" style={{ border: "2px solid black" }}>
         <h3> Brand: {product.brand} </h3>
         <h3> Model: {product.model} </h3>
         <h3> Type: {product.type} </h3>

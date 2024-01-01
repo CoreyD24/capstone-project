@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const ViteExpress = require("vite-express");
+require("dotenv").config();
 const app = express();
 
 // Middlewares

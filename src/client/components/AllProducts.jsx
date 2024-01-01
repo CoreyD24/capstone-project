@@ -27,7 +27,7 @@ const AllProducts = ({ isAdmin }) => {
               to={`/products/${product.id}`}
               style={{ textDecoration: "none", color: "white" }}
             >
-              <div key={product.id} style={{ border: "1px solid black" }}>
+              <div key={product.id} style={{ border: "2px solid black", marginBottom: "5px" }}>
                 <h3> Brand: {product.brand} </h3>
                 <img src={product.img} />
                 <h3> Price: {product.price} </h3>
