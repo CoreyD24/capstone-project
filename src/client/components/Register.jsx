@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom"; use later when clicking on product to take to single product page
+import "../styles/login.css";
 
 const Register = ({ setToken }) => {
   const navigate = useNavigate();
@@ -32,8 +32,8 @@ const Register = ({ setToken }) => {
   };
 
   return (
-    <div>
-      <h2> Login </h2>
+    <section>
+      <h2> Register </h2>
 
       <form action="">
         <label htmlFor="">
@@ -108,7 +108,7 @@ const Register = ({ setToken }) => {
         <br />
         <button onClick={loginHandler}>Register</button>
       </form>
-    </div>
+    </section>
   );
 };
 
