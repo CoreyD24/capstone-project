@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-const Account = ({ setToken }) => {
+const Account = ({ setToken, setIsAdmin }) => {
   const navigate = useNavigate();
 
   const logOutHandler = () => {
     localStorage.removeItem("TOKEN");
     localStorage.removeItem("Admin");
     setToken(null);
+    setIsAdmin(null);
     navigate("/");
   };
 

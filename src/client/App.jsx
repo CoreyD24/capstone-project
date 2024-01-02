@@ -25,7 +25,10 @@ const App = () => {
           path="/login"
           element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
         />
-        <Route path="/account" element={<Account setToken={setToken} />} />
+        <Route
+          path="/account"
+          element={<Account setToken={setToken} setIsAdmin={setIsAdmin} />}
+        />
         <Route path="/users" element={<AllUsers isAdmin={isAdmin} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />

@@ -18,9 +18,10 @@ const Login = ({ setIsAdmin, setToken }) => {
       password,
     });
     localStorage.setItem("TOKEN", token);
-    localStorage.setItem("Admin", admin || false);
-    setToken(token);
-    setIsAdmin(admin);
+    localStorage.setItem("Admin", admin);
+    // console.log(admin);
+    setToken(window.localStorage.getItem("TOKEN") || null);
+    setIsAdmin(window.localStorage.getItem("Admin") || null);
     navigate("/");
   };
 

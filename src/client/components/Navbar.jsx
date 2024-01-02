@@ -9,9 +9,8 @@ const Navbar = ({ token, isAdmin }) => {
       </div>
       <div>
         <Link to="/products">Products</Link>
-
+        {isAdmin === "true" ? <Link to="/users">Users</Link> : ""}
         <Link to="/cart">Cart</Link>
-
         {token ? (
           <Link to="/account">Account</Link>
         ) : (
