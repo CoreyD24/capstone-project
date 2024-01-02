@@ -11,7 +11,6 @@ const SingleProduct = () => {
       try {
         const { data: foundProduct } = await axios.get(`/api/products/${id}`);
         setProduct(foundProduct);
-        console.log(foundProduct);
       } catch (error) {
         console.error(error);
       }

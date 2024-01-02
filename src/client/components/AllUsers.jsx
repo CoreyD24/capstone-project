@@ -13,7 +13,6 @@ const AllUsers = ({ isAdmin }) => {
         console.error(error);
       }
     }
-    console.log(isAdmin);
     getUsers();
   }, []);
 
