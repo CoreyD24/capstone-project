@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
-const Navbar = () => {
+const Navbar = (token, isAdmin) => {
   return (
     <div id="navbar">
       <div>

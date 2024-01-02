@@ -11,17 +11,16 @@ import AllUsers from "./components/AllUsers.jsx";
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(window.localStorage.getItem("Admin"));
   const [token, setToken] = useState(window.localStorage.getItem("TOKEN"));
-  
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar token={token} isAdmin={isAdmin} />
       <Routes>
         <Route
           path="/login"
           element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
         />
-        <Route path="/users" element={<AllUsers isAdmin={isAdmin} />}/>
+        <Route path="/users" element={<AllUsers isAdmin={isAdmin} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
         <Route path="/products/:id" element={<SingleProduct />} />
