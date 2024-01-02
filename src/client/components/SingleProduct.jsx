@@ -18,6 +18,25 @@ const SingleProduct = () => {
     getProduct();
   }, []);
 
+  const addToCartHandler = async () => {
+    try {
+      const data = await axios.post(
+        `/api/cart`,
+        {
+          product,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
+          },
+        }
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div id="single_product_container" style={{ border: "2px solid black" }}>
@@ -29,6 +48,7 @@ const SingleProduct = () => {
         <h3> In Stock: {product.quantity} </h3>
         <h3> Price: {product.price} </h3>
       </div>
+      <button onClick={addToCartHandler}>Add To Cart</button>
     </div>
   );
 };
