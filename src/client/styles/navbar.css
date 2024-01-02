@@ -1,0 +1,21 @@
+#navbar {
+  background-color: rgb(226, 226, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+#navbar div {
+  margin: 0 100px;
+}
+
+#navbar a {
+  margin: 0 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#navbar a:hover {
+  color: rgb(133, 133, 133);
+  border-bottom: 3px solid black;
+}

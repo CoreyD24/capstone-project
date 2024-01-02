@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom"; use later when clicking on product to take to single product page
+import "../styles/login.css";
 
 const Register = ({ setToken }) => {
   const navigate = useNavigate();

@@ -23,7 +23,6 @@ const App = () => {
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
         <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
-      <p>navbar</p>
     </div>
   );
 };

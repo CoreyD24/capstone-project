@@ -1,0 +1,11 @@
+/* Create a clean canvas for your styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: rgb(161, 161, 142);
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
