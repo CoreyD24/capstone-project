@@ -32,8 +32,8 @@ const Register = ({ setToken }) => {
   };
 
   return (
-    <div>
-      <h2> Login </h2>
+    <section>
+      <h2> Register </h2>
 
       <form action="">
         <label htmlFor="">
@@ -108,7 +108,7 @@ const Register = ({ setToken }) => {
         <br />
         <button onClick={loginHandler}>Register</button>
       </form>
-    </div>
+    </section>
   );
 };
 
