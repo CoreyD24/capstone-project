@@ -27,7 +27,8 @@ const Register = ({ setToken }) => {
       phone_number,
     });
     localStorage.setItem("TOKEN", token);
-    setToken(token);
+    setToken(window.localStorage.getItem("TOKEN") || null);
+
     navigate("/");
   };
 
