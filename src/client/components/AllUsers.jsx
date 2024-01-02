@@ -14,11 +14,14 @@ const AllUsers = ({ isAdmin }) => {
         console.error(error);
       }
     }
+    console.log(isAdmin)
     getUsers();
   }, []);
 
   return (
     <div>
+        { isAdmin === "true" ? (
+            <div>
       <h2> All Users </h2>
       <div id="all_users_container">
         {users.map((user) => {
@@ -30,6 +33,9 @@ const AllUsers = ({ isAdmin }) => {
           );
         })}
       </div>
+    </div>
+        ): ( <p> Unauthorized for this action </p>) }
+       
     </div>
   );
 };
