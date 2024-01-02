@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
-const Navbar = (token, isAdmin) => {
+const Navbar = ({ token, isAdmin }) => {
   return (
     <div id="navbar">
       <div>
@@ -9,8 +9,14 @@ const Navbar = (token, isAdmin) => {
       </div>
       <div>
         <Link to="/products">Products</Link>
-        <Link to="/login">Login</Link>
+
         <Link to="/cart">Cart</Link>
+
+        {token ? (
+          <Link to="/account">Account</Link>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </div>
     </div>
   );
