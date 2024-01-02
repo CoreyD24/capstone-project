@@ -25,9 +25,12 @@ const AllProducts = ({ isAdmin }) => {
           return (
             <Link
               to={`/products/${product.id}`}
-              style={{ textDecoration: "none", color: "white" }}
+              style={{ textDecoration: "none" }}
             >
-              <div key={product.id} style={{ border: "2px solid black", marginBottom: "5px" }}>
+              <div
+                key={product.id}
+                style={{ border: "2px solid black", marginBottom: "5px" }}
+              >
                 <h3> Brand: {product.brand} </h3>
                 <img src={product.img} />
                 <h3> Price: {product.price} </h3>

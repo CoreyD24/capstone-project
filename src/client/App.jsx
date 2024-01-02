@@ -5,6 +5,7 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import AllProducts from "./components/AllProducts";
 import SingleProduct from "./components/SingleProduct";
+import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -12,6 +13,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route
           path="/login"
