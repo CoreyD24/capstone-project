@@ -36,6 +36,7 @@ const SingleProduct = () => {
         `/api/cart`,
         {
           product,
+          purchaseQuantity,
         },
         {
           headers: {
@@ -43,7 +44,6 @@ const SingleProduct = () => {
           },
         }
       );
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
