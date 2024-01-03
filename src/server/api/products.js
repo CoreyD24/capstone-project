@@ -47,11 +47,10 @@ router.get("/keyboards", async (req, res) => {
 // /api/products/:id
 router.get("/:id", async (req, res) => {
   try {
-    const productId = await prisma.products.findUnique({
+    const getProductById = await prisma.products.findUnique({
       where: { id: +req.params.id },
     });
-    console.log(productId);
-    res.send(productId);
+    res.send(getProductById);
   } catch (error) {
     console.log(error);
   }
