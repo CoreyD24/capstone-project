@@ -44,10 +44,6 @@ const SingleProduct = () => {
           },
         }
       );
-<<<<<<< HEAD
-      //console.log(data);
-=======
->>>>>>> main
     } catch (error) {
       console.log(error);
     }
