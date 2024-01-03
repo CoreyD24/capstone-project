@@ -1,4 +1,4 @@
-section {
+#login_page section {
   background-color: white;
   width: 200px;
   margin: 50px auto;
@@ -7,24 +7,24 @@ section {
   border-radius: 10px;
 }
 
-input {
+#login_page #login_page input {
   margin-bottom: 20px;
 }
 
-button {
+#login_page button {
   padding: 10px 40px;
   border-radius: 10px;
   background-color: yellow;
   margin: 10px 0 30px;
 }
 
-button:hover {
+#login_page button:hover {
   background-color: rgb(140, 154, 48);
 }
 
-section a {
+#login_page section a {
   color: blue;
 }
-section a:hover {
+#login_page section a:hover {
   color: rgb(120, 120, 248);
 }

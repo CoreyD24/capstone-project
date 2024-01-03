@@ -1,0 +1,35 @@
+#single_product_container {
+  width: 70%;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+
+#single_product_page input {
+  text-align: center;
+  width: 35px;
+  height: 25px;
+}
+
+#product_info {
+  margin: 50px;
+}
+
+#quantity_to_cart button {
+  text-align: center;
+  width: 35px;
+  height: 31px;
+}
+
+#add_to_cart {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 10px;
+}
+
+#quantity_section {
+  align-self: flex-end;
+  min-width: 120px;
+  padding: 50px;
+}
