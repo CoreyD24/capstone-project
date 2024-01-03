@@ -22,9 +22,8 @@ router.get("/", verify, async (req, res) => {
 router.post("/", verify, async (req, res) => {
   try {
     const productId = req.body.product.id;
+    const quantityRequested = req.body.purchaseQuantity;
     const userId = req.user.id;
-    console.log("User Id:", userId);
-    console.log("Product Id:", productId);
 
     // find the product in the backend using the id provided from the frontend
     const product = await prisma.products.findUnique({
@@ -60,25 +59,49 @@ router.post("/", verify, async (req, res) => {
           },
         },
       });
+
       res.status(201).send(newCart);
     } else {
-      // otherwise update the already existing cart
-      const updatedCart = await prisma.cart.update({
+      // See if the user has the requested product in cart already
+
+      const singleCartProducts = await prisma.cart_Products.findFirst({
         where: {
-          userId: userId,
-        },
-        data: {
-          cart_products: {
-            create: [
-              {
-                product_id: +productId,
-                product_quantity: 1,
-              },
-            ],
-          },
+          product_id: product.id,
         },
       });
-      res.status(200).send(updatedCart);
+
+      // otherwise update the already existing cart
+      if (singleCartProducts) {
+        const updatedCartProduct = await prisma.cart_Products.update({
+          where: {
+            id: singleCartProducts.id,
+            product_id: product.id,
+          },
+          data: {
+            product_quantity: quantityRequested,
+          },
+        });
+
+        res.status(200).send(updatedCartProduct);
+      } else {
+        const updatedCart = await prisma.cart.update({
+          where: {
+            userId: userId,
+          },
+          data: {
+            cart_products: {
+              create: [
+                {
+                  product_id: +productId,
+                  product_quantity: quantityRequested,
+                },
+              ],
+            },
+          },
+        });
+
+        res.status(200).send(updatedCart);
+      }
     }
   } catch (error) {
     console.error(error);
