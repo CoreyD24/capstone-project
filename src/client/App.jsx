@@ -9,6 +9,7 @@ import SingleProduct from "./components/SingleProduct";
 import Navbar from "./components/Navbar.jsx";
 import AllUsers from "./components/AllUsers.jsx";
 import Account from "./components/Account.jsx";
+import Cart from "./components/Cart.jsx";
 
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
