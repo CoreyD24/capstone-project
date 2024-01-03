@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const verify = (req, res, next) => {
   const bearer = req.headers.authorization;
-  console.log("bearer", bearer);
+  //console.log("bearer", bearer);
 
   if (!bearer) {
     res.status(401).send({ message: "Not authorized" });
@@ -11,7 +11,7 @@ const verify = (req, res, next) => {
   }
 
   const [, token] = bearer.split(" ");
-  console.log("token", token);
+  //console.log("token", token);
 
   if (!token) {
     res.status(401).send({ message: "No token provided, NOT AUTHORIZED!" });

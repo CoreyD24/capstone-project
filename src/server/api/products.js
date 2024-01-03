@@ -50,7 +50,7 @@ router.get("/:id", async (req, res) => {
     const productId = await prisma.products.findUnique({
       where: { id: +req.params.id },
     });
-    console.log(productId);
+    //console.log(productId);
     res.send(productId);
   } catch (error) {
     console.log(error);
