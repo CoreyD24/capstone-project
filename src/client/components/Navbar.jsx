@@ -5,7 +5,7 @@ const Navbar = ({ token, isAdmin }) => {
   return (
     <div id="navbar">
       <div>
-        <Link to="/">Logo</Link>
+        <Link to="/home">Home</Link>
       </div>
       <div>
         <Link to="/products">Products</Link>
