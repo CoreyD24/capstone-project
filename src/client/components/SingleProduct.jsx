@@ -77,6 +77,7 @@ const SingleProduct = () => {
               min="1"
               max={product.quantity}
               value={purchaseQuantity}
+              onChange={(e) => setPurchaseQuantity(e.target.value)}
             />
             <button onClick={incrementQuantity}>+</button>
           </div>
