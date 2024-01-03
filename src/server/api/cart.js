@@ -3,6 +3,21 @@ const prisma = require("../client");
 const { verify } = require("../util");
 const router = express.Router();
 
+//GET /api/cart
+router.get("/", verify, async (req, res) => {
+    const cart = await prisma.cart_Products.findMany();
+    const result = await Promise.all(cart.map(async(currentProductRelation) => {
+      const product = await prisma.products.findUnique({
+        where: { id: currentProductRelation.product_id }
+       })
+       //console.log("product:", product)
+       return product;
+      }))
+      //console.log("result:", result)
+      res.send({cart, result})
+},[]);
+ 
+
 // POST /api/cart
 router.post("/", verify, async (req, res) => {
   try {
