@@ -1,8 +1,24 @@
 import "../styles/home.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const Home = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function getProduct() {
+          try {
+            const { data: foundProducts } = await axios.get(`/api/products/${id}`);
+            setProducts(foundProducts);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        getProduct();
+      }, []);
+
     return (
         <section id="homeContainer">
             <section id="banner">
