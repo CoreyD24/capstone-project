@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import AllProducts from "./components/AllProducts";
@@ -21,6 +22,7 @@ const App = () => {
     <div className="App">
       <Navbar token={token} isAdmin={isAdmin} />
       <Routes>
+        <Route path="/home" element={<Home />} />
         <Route
           path="/login"
           element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
