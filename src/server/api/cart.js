@@ -5,15 +5,18 @@ const router = express.Router();
 
 //GET /api/cart
 router.get("/", verify, async (req, res) => {
-    const cart = await prisma.cart_Products.findMany();
+    const userCart = await prisma.cart.findUnique({
+      where: { userId: req.user.id}
+    });
+    const cart = await prisma.cart_Products.findMany({
+      where: { cart_id: userCart.id}
+    });
     const result = await Promise.all(cart.map(async(currentProductRelation) => {
       const product = await prisma.products.findUnique({
         where: { id: currentProductRelation.product_id }
        })
-       //console.log("product:", product)
        return product;
       }))
-      //console.log("result:", result)
       res.send({cart, result})
 },[]);
  
