@@ -25,7 +25,7 @@ const Login = ({ setIsAdmin, setToken }) => {
   };
 
   return (
-    <section id="loginPage">
+    <section id="login_page">
       <h2> Login </h2>
 
       <form action="">
