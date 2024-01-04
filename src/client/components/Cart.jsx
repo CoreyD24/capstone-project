@@ -69,7 +69,7 @@ const Cart = () => {
 
   return (
     <div>
-      {products.length > 0 ? (
+      {products ? (
         <div>
           <h2> Your Cart Items </h2>
           <div id="cart_container">
