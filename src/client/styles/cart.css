@@ -1,0 +1,20 @@
+#cart_container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cart_product {
+  display: flex;
+  justify-content: space-evenly;
+  border: 3px solid black;
+  padding: 25px;
+}
+
+.quantity_adjuster {
+  height: 50px;
+  align-self: flex-end;
+}
+
+.quantity_adjuster input {
+  width: 20px;
+}

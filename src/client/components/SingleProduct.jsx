@@ -19,6 +19,7 @@ const SingleProduct = () => {
     }
     getProduct();
   }, []);
+
   const incrementQuantity = async () => {
     if (purchaseQuantity < product.quantity) {
       setPurchaseQuantity(purchaseQuantity + 1);

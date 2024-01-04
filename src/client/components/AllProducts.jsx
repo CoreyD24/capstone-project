@@ -24,6 +24,7 @@ const AllProducts = ({ isAdmin }) => {
         {products.map((product) => {
           return (
             <Link
+              key={product.id}
               to={`/products/${product.id}`}
               style={{ textDecoration: "none" }}
             >
