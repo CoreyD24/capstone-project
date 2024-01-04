@@ -34,7 +34,6 @@ const Cart = () => {
       ) {
         updatedProducts[index].requested_quantity += 1;
       }
-      console.log(updatedProducts);
       return updatedProducts;
     });
   };
