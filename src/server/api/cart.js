@@ -133,4 +133,8 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
+router.update("/", verify, async (req, res) => {
+  // code to fill out here to properly update the cart
+});
+
 module.exports = router;

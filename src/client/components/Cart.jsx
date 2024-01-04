@@ -47,6 +47,26 @@ const Cart = () => {
     });
   };
 
+  const cartUpdateHandler = async (product) => {
+    try {
+      console.log(product);
+      // const data = await axios.update(
+      //   `/api/cart`,
+      //   {
+      //     product,
+      //     purchaseQuantity,
+      //   },
+      //   {
+      //     headers: {
+      //       Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
+      //     },
+      //   }
+      // );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {products.length > 0 ? (
@@ -79,7 +99,9 @@ const Cart = () => {
                       <button onClick={() => incrementQuantity(index)}>
                         +
                       </button>
-                      <button>UpdateCart</button>
+                      <button onClick={() => cartUpdateHandler(product)}>
+                        UpdateCart
+                      </button>
                     </div>
                   </div>
                 </div>
