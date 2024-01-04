@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/singleProduct.css";
+import { useNavigate } from "react-router-dom";
 
-const SingleProduct = () => {
+const SingleProduct = ({ isAdmin }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function getProduct() {
@@ -50,6 +52,18 @@ const SingleProduct = () => {
     }
   };
 
+  const deleteHandle = async() => {
+        try {
+            const deletedProduct = await axios.delete(`/api/products/delete/${id}`)
+            setProduct(deletedProduct)
+            
+        } catch (error) {
+            console.log(error)
+    }
+        navigate("/products")
+  };
+
+
   return (
     <div id="single_product_page">
       <div id="single_product_container">
@@ -68,6 +82,7 @@ const SingleProduct = () => {
             About This Item: <br />
             {product.description}{" "}
           </p>
+          {isAdmin === "true" ? <button  onClick={deleteHandle}>Delete Product</button> : "" }
         </div>
         <section id="quantity_section">
           <div id="quantity_to_cart">
@@ -89,6 +104,5 @@ const SingleProduct = () => {
       </div>
     </div>
   );
-};
-
+  };
 export default SingleProduct;
