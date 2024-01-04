@@ -77,7 +77,7 @@ router.post("/", verify, async (req, res) => {
             create: [
               {
                 product_id: +productId,
-                product_quantity: 1,
+                product_quantity: quantityRequested,
               },
             ],
           },
@@ -133,8 +133,8 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
-router.update("/", verify, async (req, res) => {
-  // code to fill out here to properly update the cart
-});
+// router.update("/", verify, async (req, res) => {
+//   // code to fill out here to properly update the cart
+// });
 
 module.exports = router;
