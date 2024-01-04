@@ -10,6 +10,7 @@ const AllProducts = ({ isAdmin }) => {
       try {
         const { data: foundProducts } = await axios.get("/api/products");
         setProducts(foundProducts);
+        console.log(foundProducts);
       } catch (error) {
         console.error(error);
       }
