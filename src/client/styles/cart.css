@@ -5,7 +5,7 @@
 
 .cart_product {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border: 3px solid black;
   padding: 25px;
 }
