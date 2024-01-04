@@ -8,6 +8,13 @@ router.get("/", async (req, res) => {
   const allProducts = await prisma.products.findMany();
   res.send(allProducts);
 });
+
+// commented out for now
+// router.post("/", async (req, res) => {
+// const 
+
+// })
+
 // /api/products/monitors
 router.get("/monitors", async (req, res) => {
   try {
@@ -55,5 +62,21 @@ router.get("/:id", async (req, res) => {
     console.log(error);
   }
 });
+
+// /api/products/delete
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    console.log("Product Deleted")
+    const deleteProduct = await prisma.products.delete({
+      where: { id: +req.params.id }
+    });
+
+    //res.send({ message: 'Product deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 module.exports = router;
