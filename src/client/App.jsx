@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
         <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart token={token} />} />
       </Routes>
     </div>
   );
