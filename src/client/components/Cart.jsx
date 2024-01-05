@@ -103,7 +103,7 @@ const Cart = ({ token }) => {
   };
 
   return (
-    <div>
+    <div id="cart_component">
       {token ? (
         <div>
           {products && products.length > 0 ? (
@@ -165,6 +165,8 @@ const Cart = ({ token }) => {
                   );
                 })}
               </div>
+              <h3>Total: {total}</h3>
+              <button onClick={() => purchaseHandler(total)}>Purchase</button>
             </div>
           ) : (
             <h2>Your cart is empty</h2>
@@ -173,8 +175,6 @@ const Cart = ({ token }) => {
       ) : (
         <h2>You must be logged in to access cart!</h2>
       )}
-      <h3>Total: {total}</h3>
-      <button onClick={() => purchaseHandler(total)}>Purchase</button>
     </div>
   );
 };

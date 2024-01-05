@@ -6,16 +6,15 @@
   height: 100px;
 }
 
-#navbar div {
-  margin: 0 100px;
-}
-
 #navbar a {
   margin: 0 30px;
   font-size: 1.2rem;
   font-weight: 600;
+  color: rgb(73, 73, 73);
+  border-bottom: 3px solid transparent;
 }
 #navbar a:hover {
-  color: rgb(133, 133, 133);
+  color: black;
   border-bottom: 3px solid black;
+  transition: 0.2s;
 }
