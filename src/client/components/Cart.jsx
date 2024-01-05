@@ -6,6 +6,7 @@ import "../styles/cart.css";
 const Cart = ({ token }) => {
   const [products, setProducts] = useState([]);
   const [localQuantities, setLocalQuantities] = useState([]);
+  const [total, setTotal] = useState([]);
   const [refreshTrigger, setRefreshTrigger] = useState(false);
 
   useEffect(() => {
@@ -23,6 +24,15 @@ const Cart = ({ token }) => {
         // Here we are setting the state of products to have the product info,
         // plus the requested amount from the back end
         setLocalQuantities(initialQuantities);
+        const quantitesArray = initialQuantities.map(
+          (obj) => obj.product_quantity
+        );
+        const pricesArray = cartProducts.result.map((obj, index) => obj.price);
+        let sum = 0;
+        for (let i = 0; i < pricesArray.length; i++) {
+          sum += pricesArray[i] * quantitesArray[i];
+        }
+        setTotal(sum.toFixed(2));
         setProducts(cartProducts.result);
       } catch (error) {
         console.error(error);
@@ -73,6 +83,25 @@ const Cart = ({ token }) => {
     }
   };
 
+  const purchaseHandler = async (total) => {
+    alert(`Thank you for your purchase! Your total is: ${total}`);
+    try {
+      const data = await axios.delete(
+        "/api/cart",
+        {
+          products,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {token ? (
@@ -91,11 +120,14 @@ const Cart = ({ token }) => {
                   return (
                     <div className="cart_product" key={product.id}>
                       <Link to={`/products/${product.id}`}>
-                        <img src={product.img} />{" "}
+                        <img src={product.img} />
                       </Link>
                       <div>
-                        <h3> Brand: {product.brand} </h3>{" "}
-                        <h3> Price: {product.price} </h3>
+                        <h3> Brand: {product.brand} </h3>
+                        <h3>
+                          Price: $
+                          {(product.price * quantityToPurchase).toFixed(2)}
+                        </h3>
                         <p>Quantity: {quantityToPurchase}</p>
                         <div className="quantity_adjuster">
                           <button onClick={() => decrementQuantity(index)}>
@@ -141,6 +173,8 @@ const Cart = ({ token }) => {
       ) : (
         <h2>You must be logged in to access cart!</h2>
       )}
+      <h3>Total: {total}</h3>
+      <button onClick={() => purchaseHandler(total)}>Purchase</button>
     </div>
   );
 };
