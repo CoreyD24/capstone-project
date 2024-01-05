@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "../styles/allProducts.css";
 
 const AllProducts = ({ isAdmin }) => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ const AllProducts = ({ isAdmin }) => {
   const [img, setImg] = useState("");
   const [quantity, setQuantity] = useState("");
   const [description, setDescription] = useState("");
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     async function getProducts() {
@@ -22,7 +24,7 @@ const AllProducts = ({ isAdmin }) => {
       }
     }
     getProducts();
-  }, []);
+  }, [refresh]);
 
     const addProductHandler = async (e) => {
       e.preventDefault();
@@ -39,12 +41,17 @@ const AllProducts = ({ isAdmin }) => {
       {headers: { 
         Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
     }});
+    setRefresh((refresh) => !refresh);
     };
 
   return (
     <div>
+      <h2> All Products </h2>
+      <div id="all_products_container">
       {isAdmin === "true" && (
-    <form action="">
+      <div className="all_products_div">
+      <form action="">
+        <div>
         <label htmlFor="">
           Brand:
           <br />
@@ -84,7 +91,8 @@ const AllProducts = ({ isAdmin }) => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </label>
-        <br />
+        </div>
+        <div>
         <label htmlFor="">
           Img:
           <br />
@@ -114,11 +122,11 @@ const AllProducts = ({ isAdmin }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <br />
+        <br/>
         <button onClick={addProductHandler}>Add Product</button>
-      </form>)}
-      <h2> All Products </h2>
-      <div id="all_products_container">
+        </div>
+      </form>
+      </div>)}
         {products.map((product) => {
           return (
             <Link
@@ -126,13 +134,14 @@ const AllProducts = ({ isAdmin }) => {
               to={`/products/${product.id}`}
               style={{ textDecoration: "none" }}
             >
-              <div
+              <div className="all_products_div"
                 key={product.id}
-                style={{ border: "2px solid black", marginBottom: "5px" }}
               >
-                <h3> Brand: {product.brand} </h3>
                 <img src={product.img} />
+                <div>
+                <h3> Brand: {product.brand} </h3>
                 <h3> Price: {product.price} </h3>
+                </div>
               </div>
             </Link>
           );
