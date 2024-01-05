@@ -1,7 +1,7 @@
 #homeContainer {
     height: 100%;
     width: 100%;
-    background-color: rgb(161, 161, 142);
+    padding: 5px;
 }
 
 #banner{
@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    width: 100vw;
+    width: 100%;
   }
   
   .homeProductCard {
@@ -44,9 +44,9 @@
   }
 
   #homeProductContainer img {
-    object-fit: scale-down;
-    width: 250px;
-    height: 300px;
+    object-fit: cover;
+    max-width: 250px;
+    max-height: 300px;
     background-color: transparent;
   }
 
@@ -54,4 +54,8 @@
     display: flex;
     justify-content: center;
     margin-top: 100px;
+  }
+
+  #homeContainer h1 {
+    text-align: center;
   }
