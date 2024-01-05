@@ -1,0 +1,29 @@
+#register_page {
+  background-color: white;
+  width: 200px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 150px;
+  border-radius: 10px;
+}
+
+#register_page input {
+  margin-bottom: 20px;
+}
+
+#register_page button {
+  padding: 10px 40px;
+  border-radius: 10px;
+  background-color: yellow;
+  margin: 10px 0 30px;
+}
+
+#register_page button:hover {
+  background-color: rgb(140, 154, 48);
+}
+#register_page a {
+  color: blue;
+}
+#register_page a:hover {
+  color: rgb(120, 120, 248);
+}

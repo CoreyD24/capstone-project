@@ -7,7 +7,7 @@
   border-radius: 10px;
 }
 
-#login_page #login_page input {
+#login_page input {
   margin-bottom: 20px;
 }
 
@@ -22,9 +22,9 @@
   background-color: rgb(140, 154, 48);
 }
 
-#login_page section a {
+#login_page a {
   color: blue;
 }
-#login_page section a:hover {
+#login_page a:hover {
   color: rgb(120, 120, 248);
 }
