@@ -8,6 +8,7 @@ const Login = ({ setIsAdmin, setToken }) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -43,10 +44,12 @@ const Login = ({ setIsAdmin, setToken }) => {
           Password:
           <br />
           <input
+            type= {showPassword ? "text" : "password"}
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button> Eye </button>
         </label>
         <br />
         <button onClick={loginHandler}>Login</button>

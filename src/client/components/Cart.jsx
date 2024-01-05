@@ -83,20 +83,30 @@ const Cart = ({ token }) => {
     }
   };
 
-  const purchaseHandler = async (total) => {
+  const purchaseHandler = async (total, products) => {
     alert(`Thank you for your purchase! Your total is: ${total}`);
     try {
-      const data = await axios.delete(
-        "/api/cart",
-        {
-          products,
+      const data = await axios.delete("/api/cart/all", {
+        headers: {
+          Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
         },
-        {
-          headers: {
-            Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
-          },
-        }
-      );
+        data: { products },
+      });
+      setRefreshTrigger((prev) => !prev);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteProduct = async (product) => {
+    try {
+      const data = await axios.delete("/api/cart", {
+        headers: {
+          Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
+        },
+        data: { product },
+      });
+      setRefreshTrigger((prev) => !prev);
     } catch (error) {
       console.log(error);
     }
@@ -149,15 +159,23 @@ const Cart = ({ token }) => {
                           </button>
 
                           {quantityToPurchase !== quantityToUpdate ? (
-                            <button
-                              onClick={() =>
-                                cartUpdateHandler(product, quantityToUpdate)
-                              }
-                            >
-                              Update Cart
-                            </button>
+                            <div>
+                              <button
+                                onClick={() =>
+                                  cartUpdateHandler(product, quantityToUpdate)
+                                }
+                              >
+                                Update Cart
+                              </button>
+                            </div>
                           ) : (
-                            ""
+                            <button
+                              onClick={() => {
+                                deleteProduct(product);
+                              }}
+                            >
+                              Delete
+                            </button>
                           )}
                         </div>
                       </div>
@@ -166,7 +184,9 @@ const Cart = ({ token }) => {
                 })}
               </div>
               <h3>Total: {total}</h3>
-              <button onClick={() => purchaseHandler(total)}>Purchase</button>
+              <button onClick={() => purchaseHandler(total, products)}>
+                Purchase
+              </button>
             </div>
           ) : (
             <h2>Your cart is empty</h2>
