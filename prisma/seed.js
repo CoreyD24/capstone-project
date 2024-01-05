@@ -103,7 +103,7 @@ async function seed() {
 
     const asusMouse = await prisma.products.create({
         data: {
-            brand: "Asus",
+            brand: "Msi",
             model: "Type1",
             type: "mouse",
             price: 49.99,
@@ -115,7 +115,7 @@ async function seed() {
 
     const msiMouse = await prisma.products.create({
         data: {
-            brand: "Msi",
+            brand: "Asus",
             model: "Type2",
             type: "mouse",
             price: 59.99,

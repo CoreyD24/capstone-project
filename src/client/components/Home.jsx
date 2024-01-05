@@ -23,18 +23,18 @@ const Home = () => {
       <section id="banner">
         <div id="homePagePictureContainer">
           <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Fv0PoQNbD6nlipJKq01HqwHaFj%26pid%3DApi&f=1&ipt=4e5b59df8822282f9fb33ad96d7b9dcefa5c92a02fa13e6a8c36baf2a8d14a3c&ipo=images"
+            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FYk3CHhjkOkxSE%2Fgiphy-downsized-large.gif&f=1&nofb=1&ipt=3d38cc64445c9f863b889813d12e6c0fa66bd737960ee05ea75c8e4a49ce98e9&ipo=images"
             alt="Ecommerce"
             id="homePagePicture"
           />
         </div>
         <div id="homeDescriptionContainer">
-          <h1>Welcome to our Ecommerce Store!</h1>
-          <p>Check out our latest products and deals.</p>
+          <h1>Welcome to Tyler's Tech Trio!</h1>
+          <h2>The one stop shop for every angry gamer's needs.</h2>
         </div>
       </section>
       <div id="techPicks">
-        <h1> Todays Tech Picks! </h1>
+        <h1> Todays Most Picked Replacements </h1>
       </div>
       <div id="homeProductContainer">
         {products.map((product) => {
