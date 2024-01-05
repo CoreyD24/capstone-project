@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/register.css";
 
 const Register = ({ setToken }) => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Register = ({ setToken }) => {
   };
 
   return (
-    <section>
+    <section id="register_page">
       <h2> Register </h2>
 
       <form action="">
@@ -108,6 +109,10 @@ const Register = ({ setToken }) => {
         </label>
         <br />
         <button onClick={loginHandler}>Register</button>
+        <br />
+        <p>
+          Already have an account? <Link to="/login">Login Here!</Link>
+        </p>
       </form>
     </section>
   );

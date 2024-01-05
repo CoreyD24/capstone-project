@@ -1,4 +1,4 @@
-#login_page {
+#register_page {
   background-color: white;
   width: 200px;
   margin: 50px auto;
@@ -7,24 +7,23 @@
   border-radius: 10px;
 }
 
-#login_page input {
+#register_page input {
   margin-bottom: 20px;
 }
 
-#login_page button {
+#register_page button {
   padding: 10px 40px;
   border-radius: 10px;
   background-color: yellow;
   margin: 10px 0 30px;
 }
 
-#login_page button:hover {
+#register_page button:hover {
   background-color: rgb(140, 154, 48);
 }
-
-#login_page a {
+#register_page a {
   color: blue;
 }
-#login_page a:hover {
+#register_page a:hover {
   color: rgb(120, 120, 248);
 }
