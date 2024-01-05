@@ -55,12 +55,10 @@ const SingleProduct = ({ isAdmin }) => {
   const deleteHandle = async() => {
         try {
             const deletedProduct = await axios.delete(`/api/products/delete/${id}`)
-            setProduct(deletedProduct)
-            
+            navigate("/products")
         } catch (error) {
             console.log(error)
     }
-        navigate("/products")
   };
 
 
