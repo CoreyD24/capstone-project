@@ -11,6 +11,7 @@ import AllUsers from "./components/AllUsers.jsx";
 import Account from "./components/Account.jsx";
 import Cart from "./components/Cart.jsx";
 
+//T
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(
     window.localStorage.getItem("Admin") || null
@@ -36,7 +37,10 @@ const App = () => {
         <Route path="/users" element={<AllUsers isAdmin={isAdmin} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
-        <Route path="/products/:id" element={<SingleProduct isAdmin={isAdmin} />} />
+        <Route
+          path="/products/:id"
+          element={<SingleProduct isAdmin={isAdmin} />}
+        />
         <Route path="/cart" element={<Cart token={token} />} />
       </Routes>
     </div>
