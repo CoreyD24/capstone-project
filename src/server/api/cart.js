@@ -223,4 +223,54 @@ router.patch("/", verify, async (req, res) => {
   }
 });
 
+router.delete("/", verify, async (req, res) => {
+  try {
+    const productToDelete = req.body.product;
+    const productId = req.body.product.id;
+
+    //find the current users cart
+    const userCart = await prisma.cart.findFirst({
+      where: { userId: req.user.id },
+    });
+
+    //find the cartProduct relation
+
+    const cartProductRelation = await prisma.cart_Products.findFirst({
+      where: {
+        cart_id: userCart.id,
+        product_id: +productId,
+      },
+    });
+
+    const deletedProduct = await prisma.cart_Products.delete({
+      where: {
+        id: cartProductRelation.id,
+      },
+    });
+
+    res.send({ message: "delete successful" });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.delete("/all", verify, async (req, res) => {
+  try {
+    const userCart = await prisma.cart.findFirst({
+      where: { userId: req.user.id },
+    });
+    const allProducts = req.body;
+
+    const DeleteCartProducts = await prisma.cart_Products.deleteMany({
+      where: {
+        cart_id: userCart.id,
+      },
+    });
+
+    res.send({ message: "Purchase successful" });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

@@ -11,37 +11,24 @@ router.get("/", async (req, res) => {
 
 // commented out for now
 router.post("/", async (req, res) => {
-const { 
-  brand,
-  model,
-  type,
-  price,
-  img,
-  quantity,
-  description,
-} = req.body;
-console.log( brand,
-  model,
-  type,
-  price,
-  img,
-  quantity,
-  description)
-try {
-  const product = await prisma.products.create({
-    data: {
-      brand,
-      model,
-      type,
-      price: +price,
-      img,
-      quantity: +quantity,
-      description,
-    },
-  }); res.send(product);
-} catch (error) {
-  console.error(error);
-}
+  const { brand, model, type, price, img, quantity, description } = req.body;
+
+  try {
+    const product = await prisma.products.create({
+      data: {
+        brand,
+        model,
+        type,
+        price: +price,
+        img,
+        quantity: +quantity,
+        description,
+      },
+    });
+    res.send(product);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 // /api/products/monitors
@@ -95,17 +82,15 @@ router.get("/:id", async (req, res) => {
 // /api/products/delete
 router.delete("/delete/:id", async (req, res) => {
   try {
-    console.log("Product Deleted")
     const deleteProduct = await prisma.products.delete({
-      where: { id: +req.params.id }
+      where: { id: +req.params.id },
     });
 
-    res.send({ message: 'Product deleted successfully' });
+    res.send({ message: "Product deleted successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 });
-
 
 module.exports = router;

@@ -21,28 +21,30 @@ const App = () => {
   );
 
   return (
-    <div className="App">
+    <div id="app">
       <Navbar token={token} isAdmin={isAdmin} />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/login"
-          element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
-        />
-        <Route
-          path="/account"
-          element={<Account setToken={setToken} setIsAdmin={setIsAdmin} />}
-        />
-        <Route path="/users" element={<AllUsers isAdmin={isAdmin} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
-        <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
-        <Route
-          path="/products/:id"
-          element={<SingleProduct isAdmin={isAdmin} />}
-        />
-        <Route path="/cart" element={<Cart token={token} />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/login"
+            element={<Login setIsAdmin={setIsAdmin} setToken={setToken} />}
+          />
+          <Route
+            path="/account"
+            element={<Account setToken={setToken} setIsAdmin={setIsAdmin} />}
+          />
+          <Route path="/users" element={<AllUsers isAdmin={isAdmin} />} />
+          <Route path="/register" element={<Register setToken={setToken} />} />
+          <Route path="/products" element={<AllProducts isAdmin={isAdmin} />} />
+          <Route
+            path="/products/:id"
+            element={<SingleProduct isAdmin={isAdmin} />}
+          />
+          <Route path="/cart" element={<Cart token={token} />} />
+        </Routes>
+      </main>
     </div>
   );
 };
